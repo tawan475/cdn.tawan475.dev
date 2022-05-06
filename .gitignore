@@ -1,6 +1,8 @@
 # Ignore
 ssl/
 .vscode/
+public/
+files/
 
 # Logs
 logs
