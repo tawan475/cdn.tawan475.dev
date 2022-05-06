@@ -1,0 +1,19 @@
+{
+  "name": "cdn.tawan475.dev",
+  "version": "1.0.0",
+  "description": "source of cdn.tawan475.dev",
+  "main": "cdn.tawan475.dev.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tawan475/cdn.tawan475.dev.git"
+  },
+  "author": "tawan475",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tawan475/cdn.tawan475.dev/issues"
+  },
+  "homepage": "https://github.com/tawan475/cdn.tawan475.dev#readme"
+}
