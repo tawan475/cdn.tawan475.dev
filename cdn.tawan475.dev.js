@@ -5,6 +5,7 @@ const express = require('express');
 
 const app = express();
 app.dirname = __dirname;
+app.api = process.env.API_URL;
 require('./libs/middlewares')(app);
 
 let apiRouter = require('./router')(app);
