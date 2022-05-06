@@ -8,5 +8,9 @@ module.exports = (app) => {
         res.redirect(301, 'https://' + req.domain  + '/');
     });
 
+    app.get('/public', (req, res) => {
+        res.json({ status: 200, message: 'Soon!' });
+    })
+
     return router
 };
