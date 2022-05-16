@@ -1,2 +1,2 @@
-# cdn.tawan475.dev
- source of cdn.tawan475.dev
+# go.tawan475.dev
+ source of go.tawan475.dev
