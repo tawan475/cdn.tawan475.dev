@@ -3,14 +3,17 @@ const fs = require('fs');
 const createError = require('http-errors');
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path');
 
 const app = express();
 app.dirname = __dirname;
-app.api = process.env.API_URL;
+(async() => {
+	app.db = await require('./libs/db')(app);
+})();
 require('./libs/middlewares')(app);
 
-let apiRouter = require('./router')(app);
-app.use(apiRouter);
+let router = require('./router')(app);
+app.use(router);
 
 app.use(function (req, res, next) {
     next(createError(404));
