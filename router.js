@@ -36,8 +36,8 @@ module.exports = (app) => {
         let sql = `SELECT * FROM UID WHERE UID = ?`;
         app.db.runQuery(sql, [uid]).then(result => {
             if (result.length === 0) return next(createError(404));
-            result = result[0];
-            let instance = JSON.parse(result.JSON);
+            result = JSON.parse(JSON.stringify(result));
+            let instance = JSON.parse(result[0].JSON);
 
             if (instance.type === 'shorten') return res.redirect(302, instance.originalUrl);
             if (instance.type === 'file') {
@@ -55,7 +55,6 @@ module.exports = (app) => {
                         return next(createError(500));
                     }
                     if (req.url.endsWith('/')) return res.redirect(302, 'https://go.tawan475.dev/' + req.params.route + '/' + instance.name + instance.ext);
-
 
                     let showList = ['.png', '.jpg', '.gif', '.txt', '.mp3', '.mp4'];
                     if (!req.params.original && !req.params.ext)
