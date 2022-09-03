@@ -30,7 +30,7 @@ module.exports = (app) => {
     });
 
     app.get('/:uid.:ext?(/:original)?', (req, res, next) => {
-        if (!req.params.original && req.url.endsWith('/')) return res.redirect(req.url.slice(0, -1));
+        // if (!req.params.original && req.url.endsWith('/')) return res.redirect(req.url.slice(0, -1));
         let uid = req.params.uid;
 
         let sql = `SELECT * FROM UID WHERE UID = ?`;
@@ -54,7 +54,7 @@ module.exports = (app) => {
                         }
                         return next(createError(500));
                     }
-                    if (req.url.endsWith('/') || req.params.original !== instance.name + instance.ext) return res.redirect(302, 'https://go.tawan475.dev/' + req.params.uid + '/' + instance.name + instance.ext);
+                    if (req.url.endsWith('/') || (req.params.original && req.params.original !== instance.name + instance.ext)) return res.redirect(302, 'https://go.tawan475.dev/' + req.params.uid + '/' + instance.name + instance.ext);
 
                     let showList = ['.png', '.jpg', '.gif', '.txt', '.mp3', '.mp4'];
                     if (!req.params.original && !req.params.ext)
