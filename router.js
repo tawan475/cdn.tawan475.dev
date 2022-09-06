@@ -29,7 +29,7 @@ module.exports = (app) => {
         });
     });
 
-    app.get('/:uid.:ext?(/:original)?', (req, res, next) => {
+    app.get('/:uid.?(.:ext)?/?(/:original)?', (req, res, next) => {
         // if (!req.params.original && req.url.endsWith('/')) return res.redirect(req.url.slice(0, -1));
         let uid = req.params.uid;
 
@@ -63,7 +63,7 @@ module.exports = (app) => {
                     return res.download(filePath, instance.name + instance.ext);
                 });
 
-                return
+                return next(createError(500));
             }
         });
     });
