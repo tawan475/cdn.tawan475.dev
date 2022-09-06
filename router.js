@@ -63,7 +63,7 @@ module.exports = (app) => {
                     return res.download(filePath, instance.name + instance.ext);
                 });
 
-                return next(createError(500));
+                return 
             }
         });
     });
