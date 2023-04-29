@@ -12,7 +12,7 @@ app.dirname = __dirname;
 })();
 require('./libs/middlewares')(app);
 
-let router = require('./router')(app);
+let router = require('./router.js')(app);
 app.use(router);
 
 app.use(function (req, res, next) {

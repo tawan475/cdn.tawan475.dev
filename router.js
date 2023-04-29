@@ -56,7 +56,7 @@ module.exports = (app) => {
                     }
                     if (req.url.endsWith('/') || (req.params.original && req.params.original !== instance.name + instance.ext)) return res.redirect(302, 'https://go.tawan475.dev/' + req.params.uid + '/' + instance.name + instance.ext);
 
-                    let showList = ['.png', '.jpg', '.gif', '.txt', '.mp3', '.mp4'];
+                    let showList = ['.png', '.jpg', '.gif', '.txt', '.mp3', '.mp4', '.flac'];
                     if (!req.params.original && !req.params.ext)
                         return res.redirect('https://go.tawan475.dev/' + req.params.uid + instance.ext);
                     if (showList.includes(instance.ext.toLowerCase())) return res.sendFile(filePath);
